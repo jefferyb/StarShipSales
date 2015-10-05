@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>All Star Wars Ships</title>
+</head>
+<body>
+    <h1>Welcome to the Star Wars Starship Sales Site</h1>
+    <h3>Here is a list of all starships available:</h3>
+
+	<table>
+	{% for starship in starships_names %}
+	    <tr>
+            <td width="37"></td>
+	        <td>{{ starship }}</td>
+	    </tr>
+	{% endfor %}
+	 </table>
+</body>
+</html>
