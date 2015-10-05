@@ -5,16 +5,12 @@
 </head>
 <body>
     <h1>Welcome to the Star Wars Starship Sales Site</h1>
-    <h3>Here is a list of all starships available:</h3>
+    <h3>Search for a Star Wars Ship</h3>
 
-	<table>
-	{% for starship in starships_names %}
-	    <tr>
-            <td width="37"></td>
-	        <td>{{ starship }}</td>
-	    </tr>
-	{% endfor %}
-	 </table>
+    <form action="/search" method="POST">
+        <input type="text" name="text">
+        <input type="submit" name="search" value="Search Starship">
+    </form>
     <p> 
         <a href="/">Click to go back to the main page</a><br />
     </p>

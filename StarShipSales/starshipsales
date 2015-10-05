@@ -21,8 +21,9 @@ Make sure that "swapi" (https://swapi-python.readthedocs.org/en/latest/readme.ht
 Install Flask, A lightweight Python web framework (http://flask.pocoo.org/)
     $ pip install Flask
 '''
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import swapi
+import re
 
 app = Flask(__name__)
 
@@ -48,6 +49,20 @@ def get_all_starships():
 
 # [ 0. See individual starship ]
 # [ 0. Search list by ship name ]
+@app.route("/search")
+def search():
+    # Get user input
+    return render_template('search.html')
+
+
+@app.route("/search", methods=['POST'])
+def search_result():
+    # Search through the list
+    search_starship = re.compile(request.form['text'])
+    search_results = filter(search_starship.search, starships_names)
+    search_count = len(search_results)
+    return render_template('search_results.html', search_results=search_results, search_count=search_count)
+
 # [ 0. Sort list by price ]
 # [ 0. Filter list by price ]
 # [ 0. See info on pilots attached to individual starships ]
