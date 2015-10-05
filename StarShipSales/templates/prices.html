@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Prices of All Star Wars Ships</title>
+</head>
+<body>
+<body>
+    <h1>Welcome to the Star Wars Sales Site</h1>
+    <h3>Here are the starships with available prices:</h3>
+
+	<table>
+	{% for price, ship in starships_and_prices.iteritems()|sort %}
+	    <tr>
+            <td width="37"></td>
+	        <td>{{ price }} galactic credits for a {{ ship }}</td>
+	    </tr>
+	{% endfor %}
+	 </table>
+
+    <p> 
+        <a href="/">Click to go back to the main page</a><br />
+    </p>
+
+</body>
+</html>
