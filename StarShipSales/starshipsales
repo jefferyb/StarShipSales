@@ -22,12 +22,36 @@ Install Flask, A lightweight Python web framework (http://flask.pocoo.org/)
     $ pip install Flask
 '''
 from flask import Flask, render_template
+import swapi
+
 app = Flask(__name__)
 
+print ("\n[INFO] Please wait while I load some data.")
+print ("[INFO] This may take a while, depending on your system...\n")
 
+# Load data
+all_starships_info = swapi.get_all("starships")
+starships_names = [starship.name for starship in all_starships_info.iter()]
+
+
+# The main features of the app are, from most important to least, are:
 @app.route("/")
 def index():
     return render_template('index.html')
+
+
+# [ 0. See a list of all starships ]
+@app.route("/starships")
+def get_all_starships():
+    return render_template('starships.html', starships_names=starships_names)
+
+
+# [ 0. See individual starship ]
+# [ 0. Search list by ship name ]
+# [ 0. Sort list by price ]
+# [ 0. Filter list by price ]
+# [ 0. See info on pilots attached to individual starships ]
+
 
 if __name__ == "__main__":
     app.debug = True
