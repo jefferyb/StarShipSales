@@ -15,33 +15,36 @@
     </form>
     <br />
 
-<!-- 
-    if price_range == 0:
-        print("\nThank you for your search. I hope you found what you were looking for.\n")
-    elif len(filter_results) == 0:
-        print("\nSorry, I couldn't find anything in your price range of '%s'.") % (price_range)
-        print("Please check the price and try again!")
-    else:
-        if len(filter_results) == 1:
-            print("\nHere's the only starship within your price range of '%s': ") % price_range
-        else:
-            print("\nOkay, I found %s starships within your price range of '%s': ") % (len(filter_results), price_range)
-        for price in sorted(filter_results):
-            print("  %s galactic credits for a %s") % (price, filter_results[price])
- -->
-
-
 	<table>
-	I found {{ search_count }} Star Ships with your price of {{ price_range }}: 
-        <tr>
-            <td></td>
-        </tr>
-	{% for price, ship in filter_results.iteritems()|sort %}
-	    <tr>
-	        <td>{{ price }} for {{ ship }}</td>
-	    </tr>
-	{% endfor %}
+        {% if search_count == 0 %}
+            <p> Nothing found. Please check your price and try again. </p>
+        {% elif search_count == 1 %}
+            <p> Here's the only starship within your price range of {{ price_range }}</p>
+
+            {% for price, ship in filter_results.iteritems()|sort %}
+                <tr>
+                    <td width="37"></td>
+                    <td>{{ price }} Galactic Credits for {{ ship }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+        	I found {{ search_count }} Star Ships with your price of {{ price_range }}: 
+                <tr>
+                    <td></td>
+                </tr>
+        	{% for price, ship in filter_results.iteritems()|sort %}
+        	    <tr>
+                    <td width="37"></td>
+        	        <td>{{ price }} Galactic Credits for {{ ship }}</td>
+        	    </tr>
+        	{% endfor %}
+        {% endif %}
 	 </table>
+
+    <p> 
+        <a href="/">Click to go back to the main page</a><br />
+    </p>
+
 
 </body>
 </html>

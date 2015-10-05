@@ -27,7 +27,31 @@
             print("  " + name)
  -->
 
-	<table>
+    <table>
+        {% if search_count == 0 %}
+            <p> Nothing found. Please check your search and try again. </p>
+        {% elif search_count == 1 %}
+            <p> Here's the only starship that matches your search: </p>
+
+            {% for ship in search_results %}
+                <tr>
+                    <td width="37"></td>
+                    <td>{{ ship }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            I found {{ search_count }} starships for you: 
+            {% for ship in search_results %}
+                <tr>
+                    <td width="37"></td>
+                    <td>{{ ship }}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+     </table>
+
+
+<!-- 	<table>
 	I found {{ search_count }} Star Ships for you: 
     <br/>
 	{% for ship in search_results %}
@@ -36,7 +60,7 @@
 	    </tr>
 	{% endfor %}
 	 </table>
-
+ -->
      <p> 
         <a href="/">Click to go back to the main page</a><br />
     </p>

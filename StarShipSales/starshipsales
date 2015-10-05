@@ -83,7 +83,12 @@ def searchprice():
 
 @app.route("/pricerange", methods=['POST'])
 def filter_by_price():
-    filter_results = dict((key, value) for key, value in starships_and_prices.iteritems() if key <= int(request.form['text']))
+    if request.form['text'] == "":
+        user_input = 0
+    else:
+        user_input = request.form['text']
+
+    filter_results = dict((key, value) for key, value in starships_and_prices.iteritems() if key <= int(user_input))
     search_count = len(filter_results)
     price_range = request.form['text']
     return render_template('pricerange_results.html', filter_results=filter_results, search_count=search_count, price_range=price_range)
