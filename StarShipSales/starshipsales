@@ -76,6 +76,19 @@ def sort_list_by_price():
 
 
 # [ 0. Filter list by price ]
+@app.route("/pricerange")
+def searchprice():
+    return render_template('pricerange.html')
+
+
+@app.route("/pricerange", methods=['POST'])
+def filter_by_price():
+    filter_results = dict((key, value) for key, value in starships_and_prices.iteritems() if key <= int(request.form['text']))
+    search_count = len(filter_results)
+    price_range = request.form['text']
+    return render_template('pricerange_results.html', filter_results=filter_results, search_count=search_count, price_range=price_range)
+
+
 # [ 0. See info on pilots attached to individual starships ]
 
 
