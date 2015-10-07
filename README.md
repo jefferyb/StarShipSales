@@ -9,12 +9,16 @@ information about them as well, because we are concerned about previous owners.
 INSTALLATION:
 =============
 
-Tested with 
-	Python 2.7.10 on Linux
+Tested with
+    Python 2.7.10 on Linux
 
 Make sure that "swapi" (https://swapi-python.readthedocs.org/en/latest/readme.html#installation) is installed
-	$ pip install swapi
+    $ pip install swapi
 
 Install Flask, A lightweight Python web framework (http://flask.pocoo.org/)
-	$ pip install Flask
+    $ pip install Flask
 
+To run it, just type:
+    $ ./starshipsales
+
+and you can access it at port 5000

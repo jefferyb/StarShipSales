@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>All Star Wars Ships</title>
+    <title>Search for a Star Wars Ship</title>
 </head>
 <body>
     <h1>Welcome to the Star Wars Starship Sales Site</h1>
@@ -11,21 +11,6 @@
         <input type="text" name="text">
         <input type="submit" name="search" value="Search Starship">
     </form>
-
-<!-- 
-    if starship_name == "q" or starship_name == "0":
-        print("\nThank you for your search. I hope you found what you were looking for.\n")
-    elif len(search_results) == 0:
-        print("\nSorry, I couldn't find the name '%s' (or '%s' as part of the name) in my database.") % (starship_name, starship_name)
-        print("Please check the name and try again!")
-    else:
-        if len(search_results) == 1:
-            print("\nHere's the only starship I found with '%s' for you: ") % starship_name
-        else:
-            print("\nOkay, I found %s starships with '%s' for you: ") % (len(search_results), starship_name)
-        for name in search_results:
-            print("  " + name)
- -->
 
     <table>
         {% if search_count == 0 %}
@@ -51,16 +36,6 @@
      </table>
 
 
-<!-- 	<table>
-	I found {{ search_count }} Star Ships for you: 
-    <br/>
-	{% for ship in search_results %}
-	    <tr>
-	        <td>{{ ship }}</td>
-	    </tr>
-	{% endfor %}
-	 </table>
- -->
      <p> 
         <a href="/">Click to go back to the main page</a><br />
     </p>
