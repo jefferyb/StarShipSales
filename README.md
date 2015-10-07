@@ -26,3 +26,5 @@ To run it, just type:
 	$ ./starshipsales
 
 and you can access it at port 5000
+
+P.S: When you start the webapp, it might take some time to load the data, (to make the app work faster), so when you see the message "All data loaded... You can start using the webapp", then you can head to port 5000 to start using the application.
