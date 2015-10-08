@@ -77,7 +77,7 @@ def get_all_starships():
 # [ 0. See individual starship ]
 @app.route("/<starship_name>")
 def starships_info(starship_name):
-    return render_template('starshipinfo.html', starship_name=starship_name, starshipinfos=all_starships_info.iter(), ship_pilot=ship_pilot, ship_film=ship_film)
+    return render_template('starshipinfo.html', starship_name=starship_name, starshipnames=all_starships_info.iter(), starshipinfos=all_starships_info.iter(), ship_pilot=ship_pilot, ship_film=ship_film)
 
 
 # [ 0. Search list by ship name ]

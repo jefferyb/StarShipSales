@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>All Star Wars Ships</title>
+    <style type="text/css">
+		#navigation {
+			position: absolute;
+			left: 3;
+			width: 15em;
+		}
+
+        #main {
+            margin-left: 15em;
+        }
+
+        #content {
+			margin: 7px auto;
+			margin-left: 1em;
+		}
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Star Wars Starship Sales Site</h1>
+
+    <div id="navigation">
+        <li><a href="/">Home page</a></li>
+        <br/>
+        <li><a href="/starships">See a list of all starships</a></li>
+        <li><a href="/starshipinfo">See individual starship</a></li>
+        <li><a href="/search">Search list by starship name</a></li>
+        <li><a href="/prices">Sorted list of starships by price</a></li>
+        <li><a href="/pricerange">Filter list by price</a></li>
+        <li><a href="/pilots">Pilots to individual starships</a></li>
+    </div>
+
+
+	<div id="main">
+	    <h3>List of all starships available:</h3>
+
+		{% for starship in starships_names %}
+		    <div id="content">
+		        {{ starship }}<br />
+		    </div>
+		{% endfor %}
+	</div>
+
+</body>
+</html>

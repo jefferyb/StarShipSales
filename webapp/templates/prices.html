@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Prices of All Star Wars Ships</title>
+    <style type="text/css">
+        #navigation {
+            position: absolute;
+            left: 3;
+            width: 15em;
+        }
+
+        #main {
+            margin-left: 15em;
+        }
+    </style>
+</head>
+<body>
+<body>
+    <h1>Welcome to the Star Wars Sales Site</h1>
+
+    <div id="navigation">
+        <li><a href="/">Home page</a></li>
+        <br/>
+        <li><a href="/starships">See a list of all starships</a></li>
+        <li><a href="/starshipinfo">See individual starship</a></li>
+        <li><a href="/search">Search list by starship name</a></li>
+        <li><a href="/prices">Sorted list of starships by price</a></li>
+        <li><a href="/pricerange">Filter list by price</a></li>
+        <li><a href="/pilots">Pilots to individual starships</a></li>
+    </div>
+
+
+    <div id="main">
+    <h3>Starships with available prices:</h3>
+
+	<table>
+	{% for price, ship in starships_and_prices.iteritems()|sort %}
+	    <tr>
+            <td width="10"></td>
+	        <td>{{ price }} Galactic Credits for a {{ ship }}</td>
+	    </tr>
+	{% endfor %}
+	 </table>
+    </div>
+</body>
+</html>

@@ -2,15 +2,42 @@
 <html lang="en">
 <head>
     <title>Search for a Star Wars Ship</title>
+    <style type="text/css">
+        #navigation {
+            position: absolute;
+            left: 3;
+            width: 15em;
+        }
+
+        #main {
+            margin-left: 15em;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to the Star Wars Starship Sales Site</h1>
+
+    <div id="navigation">
+        <li><a href="/">Home page</a></li>
+        <br/>
+        <li><a href="/starships">See a list of all starships</a></li>
+        <li><a href="/starshipinfo">See individual starship</a></li>
+        <li><a href="/search">Search list by starship name</a></li>
+        <li><a href="/prices">Sorted list of starships by price</a></li>
+        <li><a href="/pricerange">Filter list by price</a></li>
+        <li><a href="/pilots">Pilots to individual starships</a></li>
+    </div>
+
+
+    <div id="main">
     <h3>Search for a Star Wars Ship</h3>
 
     <form action="/search" method="POST">
         <input type="text" name="text">
         <input type="submit" name="search" value="Search Starship">
     </form>
+
+    <br />
 
     <table>
         {% if search_count == 0 %}
@@ -20,7 +47,7 @@
 
             {% for ship in search_results %}
                 <tr>
-                    <td width="37"></td>
+                    <td width="10"></td>
                     <td>{{ ship }}</td>
                 </tr>
             {% endfor %}
@@ -28,17 +55,13 @@
             I found {{ search_count }} starships for you: 
             {% for ship in search_results %}
                 <tr>
-                    <td width="37"></td>
+                    <td width="10"></td>
                     <td>{{ ship }}</td>
                 </tr>
             {% endfor %}
         {% endif %}
      </table>
 
-
-     <p> 
-        <a href="/">Click to go back to the main page</a><br />
-    </p>
-
+    </div>
 </body>
 </html>

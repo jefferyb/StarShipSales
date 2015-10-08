@@ -3,27 +3,35 @@
 <head>
     <title>All Star Wars Ships</title>
     <style type="text/css">
-        html body table {
-            margin-left: 50px;
+        #navigation {
+            position: absolute;
+            left: 3;
+            width: 15em;
+        }
+
+        #navigation2 {
+            position: absolute;
+            margin-left: 16em;
+            width: 15em;
+        }
+
+        #main {
+            position: absolute;
+            margin-left: 33em;
         }
     </style>
 </head>
 <body>
     <h1>Welcome to the Star Wars Sales Site</h1>
+
     <h2>Individual starship with more info:</h2>
 
 
-
 {% for ship in starshipinfos %}
-
-    <ul id="navigation">
-        <li>
-            <a href="/{{ ship.name }}">{{ ship.name }}</a>
-        </li>
-    </ul>
+    <div id="main">
         {% if ship.name == starship_name|string() %}
-        <dd><a href="/starshipinfo">Close</a></dd><br />
-        <table border="1" cellpadding="1" cellspacing="1" style="width: 500px">
+        <a href="/starshipinfo">Close</a><br/><br />
+        <table border="1" cellpadding="2" cellspacing="1" style="width: 500px">
             <tbody>
                 <tr>
                     <td style="width: 40%">
@@ -145,19 +153,31 @@
             </tbody>
         </table>
         {% endif %}
-
+    </div>
 {% endfor %}
 
 
-    <ul id="navigation">
-    {% for ship in starshipinfos %}
-        <li><a href="{{ ship.url }}">{{ ship.name }}</a></li>
-    {% endfor %}
-    </ul>
+<!-- Links -->
 
-    <p> 
-        <a href="/">Click to go back to the main page</a><br />
-    </p>
+    <div id="navigation">
+        <li><a href="/">Home page</a></li>
+        <br/>
+        <li><a href="/starships">See a list of all starships</a></li>
+        <li><a href="/starshipinfo">See individual starship</a></li>
+        <li><a href="/search">Search list by starship name</a></li>
+        <li><a href="/prices">Sorted list of starships by price</a></li>
+        <li><a href="/pricerange">Filter list by price</a></li>
+        <li><a href="/pilots">Pilots to individual starships</a></li>
+    </div>
+
+    <div id="navigation2">
+    <b>Starship Names</b>
+    {% for ship in starshipnames %}
+        <li>
+            <a href="/{{ ship.name }}">{{ ship.name }}</a>
+        </li>
+    {% endfor %}
+    <div>
 
 </body>
 </html>
